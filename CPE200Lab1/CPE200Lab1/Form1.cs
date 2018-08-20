@@ -127,13 +127,19 @@ namespace CPE200Lab1
         //Percentage
         private void btnPercent_Click(object sender, EventArgs e)
         {
-            x2 = (x1 * Convert.ToDouble(lblDisplay.Text) / 100);
-            lblDisplay.Text = Convert.ToString(x2);
+            if (B == 1 || B == 2)
+            {
+                x2 = (x1 * Convert.ToDouble(lblDisplay.Text) / 100);
+                lblDisplay.Text = Convert.ToString(x2);
+            }
+            else
+                x2 = Convert.ToDouble(lblDisplay.Text) / 100;
+            
         }
         //Back
         private void btnBack_Click(object sender, EventArgs e)
         {
-            if (lblDisplay.Text.Length == 1) lblDisplay.Text = "0";
+            if (lblDisplay.Text.Length == 1||(Convert.ToDouble(lblDisplay.Text)<10&& Convert.ToDouble(lblDisplay.Text) > -10)) lblDisplay.Text = "0";
             else if (B != 0)
             {
                 B = 0;
