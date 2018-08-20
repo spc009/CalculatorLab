@@ -27,17 +27,18 @@ namespace CPE200Lab1
         private void btnX_Click(object sender, EventArgs e)
         {
             Button btnX = (Button)sender;
-            if (stage != 1)
+            if (stage != 1) //in case that btnEqual_click before
             {
                 stage = 1;
                 clear();
             }
-            if (lblDisplay.Text == "0" || keep)
+            if (lblDisplay.Text == "0" || keep) //in case new number
                 lblDisplay.Text = "";
             if (lblDisplay.Text.Length <= 8) lblDisplay.Text = lblDisplay.Text + btnX.Text;
             keep = false;
             cal = false;
         }
+
         //Calculate
         private void Calculate(int B)
         {
