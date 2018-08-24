@@ -14,7 +14,7 @@ namespace CPE200Lab1
     {
         //initilization
         int B = 0, stage = 1;
-        double x1, x2;
+        float x1, x2;
         bool keep = false, cal = false;
         private bool keepX1 = false, keepX2 = false;
 
@@ -49,13 +49,13 @@ namespace CPE200Lab1
             {
                 if (keepX1)
                 {
-                    x2 = Convert.ToDouble(lblDisplay.Text);
+                    x2 = float.Parse(lblDisplay.Text);
                     keepX2 = true;
                     keep = true;
                 }
                 else
                 {
-                    x1 = Convert.ToDouble(lblDisplay.Text);
+                    x1 = float.Parse(lblDisplay.Text);
                     keepX1 = true;
                     keep = true;
                 }
@@ -75,8 +75,8 @@ namespace CPE200Lab1
                         x1 = x1 * x2;
                         break;
                     case 4:
-                        if (x2 == 0) lblDisplay.Text = "EROR";
-                        else x1 = x1 / x2;
+                        
+                        x1 = x1 / x2;
                         break;
                 }
                 cal = true;
@@ -94,10 +94,11 @@ namespace CPE200Lab1
         //Plus
         private void btnPlus_Click(object sender, EventArgs e)
         {
+            if (!cal) Calculate(B);
             stage = 1;
             B = 1;
             keepX2 = false;
-            if (!cal) Calculate(B);
+            
         }
         //Sign
         private void btnSign_Click(object sender, EventArgs e)
@@ -107,25 +108,25 @@ namespace CPE200Lab1
         //Minus
         private void btnMinus_Click(object sender, EventArgs e)
         {
+            if (!cal) Calculate(B);
             stage = 1;
             keepX2 = false;
-            if (!cal) Calculate(B);
             B = 2;
         }
         //Multiply
         private void btnMultiply_Click(object sender, EventArgs e)
         {
+            if (!cal) Calculate(B);
             stage = 1;
             keepX2 = false;
-            if (!cal) Calculate(B);
             B = 3;
         }
         //Divide
         private void btnDivide_Click(object sender, EventArgs e)
         {
+            if (!cal) Calculate(B);
             stage = 1;
             keepX2 = false;
-            if (!cal) Calculate(B);
             B = 4;
         }
         //Percentage
@@ -133,11 +134,11 @@ namespace CPE200Lab1
         {
             if (B == 1 || B == 2)
             {
-                x2 = (x1 * Convert.ToDouble(lblDisplay.Text) / 100);
+                x2 = (x1 * float.Parse(lblDisplay.Text) / 100);
                 lblDisplay.Text = Convert.ToString(x2);
             }
             else
-                x2 = Convert.ToDouble(lblDisplay.Text) / 100;
+                x2 = float.Parse(lblDisplay.Text) / 100;
             
         }
         //Back
