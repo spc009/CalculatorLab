@@ -33,7 +33,10 @@ namespace CPE200Lab1
                 clear();
             }
             if (lblDisplay.Text == "0" || keep) //in case new number
+            {
                 lblDisplay.Text = "";
+                if (btnX.Text == ".") lblDisplay.Text = "0";
+            }
             if (lblDisplay.Text.Length <= 8) lblDisplay.Text = lblDisplay.Text + btnX.Text;
             keep = false;
             cal = false;
