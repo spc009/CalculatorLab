@@ -56,6 +56,11 @@ namespace CPE200Lab1
 
             return "E";
         }
+
+        internal string calculate(string operate, string firstOperand, string secondOperand)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
